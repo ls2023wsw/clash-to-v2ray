@@ -8,3 +8,4 @@
   - {name: 🇰🇷 韩国-1A 126, server: krf7.dmasodjioejqng568a9defg.sanxi.online, port: 23704, type: trojan, password: 844f0e05-611a-4cfe-bf5d-938c4ebf2c4d, skip-cert-verify: true}
 
 直接放入前端网页输入框，点击转换，将转换结果复制粘贴在v2ray里面就可以正常使用。
+如果你有同样的问题，并且对你有用，请给我点个star
