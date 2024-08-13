@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点信息转换器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        input[type="submit"], input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            color: #333;
+        }
+        .result-area {
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            
+            if (event.key === 'Backspace' && !document.activeElement.matches('input, textarea')) {
+                event.preventDefault();
+            }
+        });
+
+        function clearTextAreas() {
+            
+            document.querySelector('textarea[name="node_input"]').value = '';
+            document.querySelector('.result-area textarea').value = '';
+        }
+
+        function makeEditable() {
+            document.querySelector('.result-area textarea').removeAttribute('readonly');
+        }
+    </script>
+</head>
+<body>
+    <h1>节点信息转换器</h1>
+    <form method="post">
+        <textarea name="node_input" rows="10" placeholder="输入节点信息..."></textarea><br>
+        <input type="submit" value="转换">
+        <input type="button" value="清除" onclick="clearTextAreas()">
+        <input type="button" value="编辑" onclick="makeEditable()">
+    </form>
+    <div class="result-area">
+        <h2>转换结果</h2>
+        <textarea rows="10" readonly>{{ result }}</textarea>
+    </div>
+</body>
+</html>
